@@ -45,25 +45,32 @@ def LongestCommonSubsequence(S1, S2, m, n):
 
 
 lines = []
-# fname=sys.argv[1]
+
 file1 = open("1.txt", 'r')
 for line in file1:
-    line = line.strip()
-    lines.append(line)
+    items = line.rstrip('\r\n').split('\t')
+    items = [item.strip()
+             for item in items]  # strip extra whitespace off data items
+    lines.append(items)
 
-file2 = open("2.txt", 'r')
-for line in file2:
-    line = line.strip()
-    lines.append(line)
+file1 = open("2.txt", 'r')
+for line in file1:
+    items = line.rstrip('\r\n').split('\t')
+    items = [item.strip()
+             for item in items]  # strip extra whitespace off data items
+    lines.append(items)
 
-file3 = open("3.txt", 'r')
-for line in file3:
-    line = line.strip()
-    lines.append(line)
+file1 = open("3.txt", 'r')
+for line in file1:
+    items = line.rstrip('\r\n').split('\t')
+    items = [item.strip()
+             for item in items]  # strip extra whitespace off data items
+    lines.append(items)
 
-for i in range(0, len(lines), 2):
-    S1 = lines[i]
-    S2 = lines[i + 1]
+for i in range(0, len(lines)):
+    data = lines[i][0].split()
+    S1 = data[0]
+    S2 = data[1]
     m = len(S1)
     n = len(S2)
     LongestCommonSubsequence(S1, S2, m, n)
