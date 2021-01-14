@@ -29,6 +29,18 @@ OptionList = [
     "0-1-knapsack-problem", "Partition-problem", "Rod Cutting Problem",
     "Coin-change-making-problem", "Word Break Problem"
 ]
+FileList = [
+    "File-01",
+    "File-02",
+    "File-03",
+    "File-04",
+    "File-05",
+    "File-06",
+    "File-07",
+    "File-08",
+    "File-09",
+    "File-10",
+]
 
 app = tk.Tk()
 simg = ImageTk.PhotoImage(Image.open("2112.jpg"))
@@ -64,34 +76,35 @@ x1 = tk.OptionMenu(app, variable, *OptionList)
 x1.config(width=90, font=('Helvetica', 20), bg="GRAY")
 x1.pack(fill=tk.X, padx=10)
 x1['menu'].config(bg="#7BCAB6")
-#Select File Button
-myFont = font.Font(size=12)
-x1 = tk.Label(app,
+
+x2 = tk.Label(app,
               foreground="#66FF00",
               background="#808080",
-              text="\nSelect A Valid .txt File For The  Algorithm",
+              text="\nSelect The File 👇",
               font=my_font)
-x1.pack(fill=tk.X, pady=9, padx=10)
-# button1 = tk.Button(app,
-#                     text='Open',
-#                     width="10",
-#                     height="2",
-#                     bg="GRAY",
-#                     command=UploadAction)
-# button1['font'] = myFont
-# button1.pack()
+x2.pack(fill=tk.X, pady=9, padx=10)
+variable2 = tk.StringVar(app)
+variable2.set("Files List")
 
-btn1 = tk.Button(app,
-                 text='Open File',
-                 width="10",
-                 height="2",
-                 bg="GRAY",
-                 command=lambda: open_file())
-btn1['font'] = myFont
-btn1.pack(pady=10)
+x2 = tk.OptionMenu(app, variable2, *FileList)
+x2.config(width=90, font=('Helvetica', 20), bg="GRAY")
+x2.pack(fill=tk.X, padx=10)
+x2['menu'].config(bg="#7BCAB6")
+myFont = font.Font(size=12)
+
+#run button
+
+button1 = tk.Button(
+    app,
+    text='Run',
+    width="10",
+    height="2",
+    bg="GRAY",
+)
+button1['font'] = myFont
+button1.pack(pady=70, padx=90)
 
 #Exit Button
-
 button2 = tk.Button(app,
                     text='Exit',
                     width="10",
@@ -100,6 +113,7 @@ button2 = tk.Button(app,
                     command=app.quit)
 button2['font'] = myFont
 button2.pack(pady=70, padx=90)
+
 # btn1.grid(row=0, column=0, sticky=W)
 # c.grid(row=0, column=1, sticky=W)
 # def callback(*args):
