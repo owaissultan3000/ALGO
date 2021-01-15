@@ -30,16 +30,16 @@ OptionList = [
     "Coin-change-making-problem", "Word Break Problem"
 ]
 FileList = [
-    "File-01",
-    "File-02",
-    "File-03",
-    "File-04",
-    "File-05",
-    "File-06",
-    "File-07",
-    "File-08",
-    "File-09",
-    "File-10",
+    "File_01.txt",
+    "File_02.txt",
+    "File_03.txt",
+    "File_04.txt",
+    "File_05.txt",
+    "File_06.txt",
+    "File_07.txt",
+    "File_08.txt",
+    "File_09.txt",
+    "File_10.txt",
 ]
 
 app = tk.Tk()
