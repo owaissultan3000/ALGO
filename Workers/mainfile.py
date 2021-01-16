@@ -24,6 +24,8 @@ from MatrixChainMultiplication import MatrixChainMultiplication, MatrixChainMult
 from PartitionProblem import PartitionProblem, PartitionProblemReader
 #Problem I
 from CoinChangeProblem import FindMinCoins, CoinChangeReader
+#Problem J
+from WordBreakProblem import WordBreak, WordBreakReader
 
 AllFiles = ""
 var = ""
@@ -157,8 +159,32 @@ def RunAlgo():
             foreground="BLACK",
             background="GRAY")
 
+    # Problem J
+    if var == 10:
+        data = AllFiles[var2 - 1][0].split()
+        for i in range(0, len(data) - 1):
+            data[i] = str(data[i])
+        stri = str(data[len(data) - 1])
+        data.pop()
 
-# messagebox.showinfo(AllFiles)
+        lookup = [-1] * (len(stri) + 1)
+        Result = WordBreak(data, stri, lookup)
+        labelTest.configure(text="List Of Available Words: " + str(data) +
+                            "\nDesired Word: " + (stri),
+                            foreground="BLACK",
+                            background="GRAY")
+        if Result:
+            labelTest2.configure(text="String Can Be Segmented ✔ ",
+                                 foreground="BLACK",
+                                 background="GRAY")
+
+        else:
+            labelTest2.configure(text="String Can Not Be Segmented ❌ ",
+                                 foreground="BLACK",
+                                 background="GRAY")
+
+
+
 
 AlgoDict = {
     "Longest_Common_Subsequence": 1,
@@ -334,6 +360,10 @@ def ReadFiles(algo):
     #Problem I
     if (var == 9):
         AllFiles = CoinChangeReader()
+
+    #Problem J
+    if (var == 10):
+        AllFiles = WordBreakReader()
 
 
 variable.trace("w", callback)
