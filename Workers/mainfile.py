@@ -331,7 +331,7 @@ x2 = tk.OptionMenu(app, variable2, *FileList)
 x2.config(width=90, font=('Helvetica', 20), bg="GRAY")
 x2.pack(fill=tk.X, pady=9, padx=10)
 x2['menu'].config(bg="#7BCAB6")
-myFont = font.Font(size=15)
+myFont = font.Font(size=15, font="bold")
 
 #callback functions
 
@@ -355,12 +355,12 @@ labelTest2 = tk.Label(text="", font=('Helvetica', 18), fg='red')
 labelTest2.pack(pady=10, padx=90)
 
 #run button
-button1 = tk.Button(app, text='Run', bg="GRAY", command=RunAlgo)
+button1 = tk.Button(app, text='RUN', bg="GRAY", command=RunAlgo)
 button1['font'] = myFont
 button1.pack(pady=50, padx=60)
 
 #Exit Button
-button2 = tk.Button(app, text='Exit', bg="GRAY", command=app.quit)
+button2 = tk.Button(app, text='EXIT', bg="GRAY", command=app.quit)
 button2['font'] = myFont
 button2.pack(pady=10, padx=90)
 
