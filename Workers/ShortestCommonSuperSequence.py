@@ -1,7 +1,13 @@
 import sys
 
+fileslist = [
+    "1.txt",
+    "2.txt",
+    "3.txt",
+]
 
-def shortestCommonSuperDP(str1, str2):
+
+def ShortestCommonSequence(str1, str2):
     dp = [[None for _ in range(len(str2) + 1)] for _ in range(len(str1) + 1)]
     for i in range(len(str1) + 1):
         for j in range(len(str2) + 1):
@@ -47,36 +53,19 @@ def shortestCommonSuperDP(str1, str2):
     return scstr
 
 
-lines = []
+def ShortestCommonSequenceReader():
+    lines = []
+    for i in range(1, 4):
+        file1 = open("../ProblemB/" + str(i) + ".txt", 'r')
+        for line in file1:
+            items = line.rstrip('\r\n').split('\t')
+            items = [item.strip() for item in items
+                     ]  # strip extra whitespace off data items
+            lines.append(items)
 
-file1 = open("1.txt", 'r')
-for line in file1:
-    items = line.rstrip('\r\n').split('\t')
-    items = [item.strip()
-             for item in items]  # strip extra whitespace off data items
-    lines.append(items)
+    return lines
 
-file1 = open("2.txt", 'r')
-for line in file1:
-    items = line.rstrip('\r\n').split('\t')
-    items = [item.strip()
-             for item in items]  # strip extra whitespace off data items
-    lines.append(items)
 
-file1 = open("3.txt", 'r')
-for line in file1:
-    items = line.rstrip('\r\n').split('\t')
-    items = [item.strip()
-             for item in items]  # strip extra whitespace off data items
-    lines.append(items)
+def Calculate(lines):
 
-for i in range(0, len(lines)):
-    data = lines[i][0].split()
-    S1 = data[0]
-    S2 = data[1]
-    m = len(S1)
-    n = len(S2)
-    result = shortestCommonSuperDP(S1, S2)
-    print("S1 : " + S1 + "\nS2 : " + S2)
-    print("Lenght Of Shortest Common SuperSequence:", len(result))
-    print("Shortest Common Super Sequence: ", result)
+    ShortestCommonSequence(lines[0], lines[1])
