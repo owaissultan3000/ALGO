@@ -44,18 +44,3 @@ def KnapSackReader():
 def Calculate(v, w, W):
 
     KnapSack(v, w, W)
-
-
-# print(mainlist)
-# print(mainlist[0][0])
-# print(mainlist[0][1])
-# print(mainlist[0][2])
-
-# print(mainlist[0])
-# print(lines)
-# print(len(lines))
-# print(lines[0][0])
-# print(lines[1][0])
-# print(lines[2][0])
-
-# print("Knapsack value is", knapSack(v, w, W))

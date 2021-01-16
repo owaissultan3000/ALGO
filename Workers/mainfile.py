@@ -5,10 +5,7 @@ import tkinter as tk
 from PIL import ImageTk, Image
 from tkinter.font import Font
 import tkinter
-from tkinter import filedialog
 import tkinter.font as font
-from tkinter.filedialog import askopenfile
-from tkinter import messagebox
 
 # Problem A
 from LongestCommonSubSequence import LongestCommonSubsequence, LargestCommonSequenceReader
@@ -24,6 +21,8 @@ from MatrixChainMultiplication import MatrixChainMultiplication, MatrixChainMult
 from Knapsack import KnapSack, KnapSackReader
 #Problem G
 from PartitionProblem import PartitionProblem, PartitionProblemReader
+#Problem H
+from RodCutting import RodCutting, RodCuttingReader
 #Problem I
 from CoinChangeProblem import FindMinCoins, CoinChangeReader
 #Problem J
@@ -169,6 +168,35 @@ def RunAlgo():
                 foreground="BLACK",
                 background="GRAY")
 
+    # Problem H
+    if var == 8:
+        # print(var2)
+        Length = []
+        Price = []
+        RodLength = 0
+        data = AllFiles[var2 - 1]
+
+        Length = data[0][0].split()
+        Price = data[1][0].split()
+        RodLength = int(data[2][0])
+        for i in range(0, len(Length)):
+            Length[i] = int(Length[i])
+
+        for i in range(0, len(Price)):
+            Price[i] = int(Price[i])
+
+        Result = RodCutting(Price, RodLength)
+
+        labelTest.configure(text="Rod Length Matrix: " + str(Length) +
+                            "\nRod Price Matrix: " + str(Price) +
+                            "\nRod Length: " + str(RodLength),
+                            foreground="BLACK",
+                            background="GRAY")
+
+        labelTest2.configure(text="Profit Value Is : " + str(Result),
+                             foreground="BLACK",
+                             background="GRAY")
+
     # Problem I
     if var == 9:
         data = AllFiles[var2 - 1][0].split()
@@ -303,7 +331,7 @@ x2 = tk.OptionMenu(app, variable2, *FileList)
 x2.config(width=90, font=('Helvetica', 20), bg="GRAY")
 x2.pack(fill=tk.X, pady=9, padx=10)
 x2['menu'].config(bg="#7BCAB6")
-myFont = font.Font(size=12)
+myFont = font.Font(size=15)
 
 #callback functions
 
@@ -311,7 +339,7 @@ myFont = font.Font(size=12)
 def callback2(*args):
 
     global var2, var
-    if (var == 6):
+    if (var == 6 or var == 8):
         var2 = OptionDict[variable2.get()]
         strings = AllFiles[var2 - 1]
     else:
@@ -377,6 +405,10 @@ def ReadFiles(algo):
     #Problem G
     if (var == 7):
         AllFiles = PartitionProblemReader()
+
+    #Problem H
+    if (var == 8):
+        AllFiles = RodCuttingReader()
 
     #Problem I
     if (var == 9):
