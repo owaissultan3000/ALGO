@@ -20,6 +20,8 @@ from EditDistance import Distance, EditReader
 from LongestIncreasingSubsequence import LongestIncresingSequence, LongestIncresingSequenceReader
 # Problem E
 from MatrixChainMultiplication import MatrixChainMultiplication, MatrixChainMultiplicationReader
+#Problem F
+from Knapsack import KnapSack, KnapSackReader
 #Problem G
 from PartitionProblem import PartitionProblem, PartitionProblemReader
 #Problem I
@@ -117,6 +119,34 @@ def RunAlgo():
                              foreground="BLACK",
                              background="GRAY")
 
+    # Problem F
+    if var == 6:
+        v = []
+        w = []
+        W = 0
+        data = AllFiles[var2 - 1]
+
+        v = data[0][0].split()
+        w = data[1][0].split()
+        W = int(data[2][0])
+        for i in range(0, len(v)):
+            v[i] = int(v[i])
+
+        for i in range(0, len(w)):
+            w[i] = int(w[i])
+
+        Result = KnapSack(v, w, W)
+
+        labelTest.configure(text="Value Matrix: " + str(v) +
+                            "\nWeight Matrix: " + str(w) +
+                            "\nKnapSack Capacity: " + str(W),
+                            foreground="BLACK",
+                            background="GRAY")
+
+        labelTest2.configure(text="KnapSack Value Is : " + str(Result),
+                             foreground="BLACK",
+                             background="GRAY")
+
     # Problem G
     if var == 7:
         data = AllFiles[var2 - 1][0].split()
@@ -182,8 +212,6 @@ def RunAlgo():
             labelTest2.configure(text="String Can Not Be Segmented ❌ ",
                                  foreground="BLACK",
                                  background="GRAY")
-
-
 
 
 AlgoDict = {
@@ -282,48 +310,36 @@ myFont = font.Font(size=12)
 
 def callback2(*args):
 
-    global var2
-    var2 = OptionDict[variable2.get()]
-    strings = AllFiles[var2 - 1][0].split()
+    global var2, var
+    if (var == 6):
+        var2 = OptionDict[variable2.get()]
+        strings = AllFiles[var2 - 1]
+    else:
+        var2 = OptionDict[variable2.get()]
+        strings = AllFiles[var2 - 1][0].split()
 
 
 labelTest = tk.Label(text="", font=('Helvetica', 18), fg='red')
 
 labelTest.pack(pady=10, padx=90)
 
-#run button
-
-button1 = tk.Button(app,
-                    text='Run',
-                    width="5",
-                    height="1",
-                    bg="GRAY",
-                    command=RunAlgo)
-button1['font'] = myFont
-button1.pack(pady=70, padx=60)
-
 labelTest2 = tk.Label(text="", font=('Helvetica', 18), fg='red')
-
 labelTest2.pack(pady=10, padx=90)
+
+#run button
+button1 = tk.Button(app, text='Run', bg="GRAY", command=RunAlgo)
+button1['font'] = myFont
+button1.pack(pady=50, padx=60)
+
+#Exit Button
+button2 = tk.Button(app, text='Exit', bg="GRAY", command=app.quit)
+button2['font'] = myFont
+button2.pack(pady=10, padx=90)
 
 
 def callback(*args):
     global Result
     AllFiles = ReadFiles(variable.get())
-
-
-#Exit Button
-button2 = tk.Button(app,
-                    text='Exit',
-                    width="5",
-                    height="1",
-                    bg="GRAY",
-                    command=app.quit)
-button2['font'] = myFont
-button2.pack(pady=70, padx=90)
-
-# btn1.grid(row=0, column=0, sticky=W)
-# c.grid(row=0, column=1, sticky=W)
 
 
 def ReadFiles(algo):
@@ -353,6 +369,11 @@ def ReadFiles(algo):
     if (var == 5):
 
         AllFiles = MatrixChainMultiplicationReader()
+
+    #Problem F
+    if (var == 6):
+
+        AllFiles = KnapSackReader()
     #Problem G
     if (var == 7):
         AllFiles = PartitionProblemReader()
