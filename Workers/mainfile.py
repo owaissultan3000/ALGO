@@ -20,6 +20,10 @@ from EditDistance import Distance, EditReader
 from LongestIncreasingSubsequence import LongestIncresingSequence, LongestIncresingSequenceReader
 # Problem E
 from MatrixChainMultiplication import MatrixChainMultiplication, MatrixChainMultiplicationReader
+#Problem G
+from PartitionProblem import PartitionProblem, PartitionProblemReader
+#Problem I
+from CoinChangeProblem import FindMinCoins, CoinChangeReader
 
 AllFiles = ""
 var = ""
@@ -110,6 +114,48 @@ def RunAlgo():
                              str(Result),
                              foreground="BLACK",
                              background="GRAY")
+
+    # Problem G
+    if var == 7:
+        data = AllFiles[var2 - 1][0].split()
+        for i in range(0, len(data)):
+            data[i] = int(data[i])
+        Result = PartitionProblem(data, len(data))
+
+        labelTest.configure(text="Input Array: " + str(data),
+                            foreground="BLACK",
+                            background="GRAY")
+        if (Result == True):
+            labelTest2.configure(
+                text="Array Can Be Divided Into Two Subsets Of Equal Sum ✔",
+                foreground="BLACK",
+                background="GRAY")
+
+        else:
+            labelTest2.configure(
+                text="Array Can Not Be Divided Into Two Subsets Of Equal Sum ❌",
+                foreground="BLACK",
+                background="GRAY")
+
+    # Problem I
+    if var == 9:
+        data = AllFiles[var2 - 1][0].split()
+        for i in range(0, len(data) - 1):
+            data[i] = int(data[i])
+        rupee = int(data[len(data) - 1])
+        data.pop()
+        Result = FindMinCoins(data, rupee)
+
+        labelTest.configure(text="List Of Available Coins: " + str(data) +
+                            "\nDesired Change Of Rupee: " + str(rupee),
+                            foreground="BLACK",
+                            background="GRAY")
+
+        labelTest2.configure(
+            text="Minimum Number Of Coins Required To Get Desired Change Is : "
+            + str(Result),
+            foreground="BLACK",
+            background="GRAY")
 
 
 # messagebox.showinfo(AllFiles)
@@ -281,6 +327,13 @@ def ReadFiles(algo):
     if (var == 5):
 
         AllFiles = MatrixChainMultiplicationReader()
+    #Problem G
+    if (var == 7):
+        AllFiles = PartitionProblemReader()
+
+    #Problem I
+    if (var == 9):
+        AllFiles = CoinChangeReader()
 
 
 variable.trace("w", callback)

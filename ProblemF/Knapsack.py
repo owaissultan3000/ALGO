@@ -41,5 +41,8 @@ for i in range(0, 2):
                  for item in items]  # strip extra whitespace off data items
         lines.append(items)
 print(lines)
+print(lines[0][0])
+print(lines[1][0])
+print(lines[2][0])
 
 # print("Knapsack value is", knapSack(v, w, W))
