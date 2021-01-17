@@ -34,7 +34,7 @@ def LongestIncresingSequence(arr):
 # Driver program to test above function
 def LongestIncresingSequenceReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemD/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

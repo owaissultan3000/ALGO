@@ -32,7 +32,7 @@ def WordBreak(dict, stri, lookup):
 
 def WordBreakReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemJ/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

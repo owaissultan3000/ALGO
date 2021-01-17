@@ -31,7 +31,7 @@ def MatrixChainMultiplication(dims):
 # Driver program to test above function
 def MatrixChainMultiplicationReader():
     lines = []
-    for i in range(1, 3):
+    for i in range(1, 11):
         file1 = open("../ProblemE/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

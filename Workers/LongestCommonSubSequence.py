@@ -1,11 +1,5 @@
 import sys
 
-fileslist = [
-    "1.txt",
-    "2.txt",
-    "3.txt",
-]
-
 
 # Function to find lcs_algo
 def LongestCommonSubsequence(S1, S2, m, n):
@@ -48,7 +42,7 @@ def LongestCommonSubsequence(S1, S2, m, n):
 
 def LargestCommonSequenceReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemA/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

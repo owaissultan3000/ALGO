@@ -1,10 +1,5 @@
 # Function to find Levenshtein Distance between X and Y
 # m and n are the number of characters in X and Y respectively
-fileslist = [
-    "1.txt",
-    "2.txt",
-    "3.txt",
-]
 
 
 def Distance(X, Y):
@@ -45,7 +40,7 @@ def Distance(X, Y):
 
 def EditReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemC/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

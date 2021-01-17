@@ -43,7 +43,7 @@ def PartitionProblem(arr, n):
 
 def PartitionProblemReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemG/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')
@@ -60,9 +60,3 @@ def PartitionProblemReader():
 def Calculate(lines):
 
     PartitionProblem(lines, len(lines))
-
-
-# if PartitionProblem(arr, n) == True:
-#     print("Can be divided into two", "subsets of equal sum")
-# else:
-#     print("Can not be divided into ", "two subsets of equal sum")

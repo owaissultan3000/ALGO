@@ -1,11 +1,5 @@
 import sys
 
-fileslist = [
-    "1.txt",
-    "2.txt",
-    "3.txt",
-]
-
 
 def ShortestCommonSequence(str1, str2):
     dp = [[None for _ in range(len(str2) + 1)] for _ in range(len(str1) + 1)]
@@ -55,7 +49,7 @@ def ShortestCommonSequence(str1, str2):
 
 def ShortestCommonSequenceReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemB/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

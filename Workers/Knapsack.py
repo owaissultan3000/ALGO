@@ -29,7 +29,7 @@ def KnapSack(v, w, W):
 def KnapSackReader():
     lines = []
     mainlines = []
-    for i in range(1, 3):
+    for i in range(1, 11):
         file1 = open("../ProblemF/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

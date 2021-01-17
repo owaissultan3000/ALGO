@@ -28,7 +28,7 @@ def FindMinCoins(S, N):
 
 def CoinChangeReader():
     lines = []
-    for i in range(1, 4):
+    for i in range(1, 11):
         file1 = open("../ProblemI/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

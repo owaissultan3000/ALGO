@@ -51,7 +51,7 @@ def RunAlgo():
                             background="GRAY")
 
         labelTest2.configure(text="Longest Common Sub-Sequence Is: " + Result +
-                             " With Length: " + str(len(Result)),
+                             "\nLength: " + str(len(Result)),
                              foreground="BLACK",
                              background="GRAY")
 
@@ -66,8 +66,8 @@ def RunAlgo():
                             foreground="BLACK",
                             background="GRAY")
 
-        labelTest2.configure(text="Shortest Common Super-Sequence Is: " +
-                             Result + " With Length: " + str(len(Result)),
+        labelTest2.configure(text="Super-Sequence Is: " + Result +
+                             "\nWith Length: " + str(len(Result)),
                              foreground="BLACK",
                              background="GRAY")
 
@@ -88,12 +88,14 @@ def RunAlgo():
 
     # Problem D
     if var == 4:
-        data = AllFiles[var2 - 1][0].split()
-        for i in range(0, len(data)):
-            data[i] = int(data[i])
-        Result = LongestIncresingSequence(data)
-
-        labelTest.configure(text="Input Array: " + str(data),
+        data2 = []
+        data1 = AllFiles[var2 - 1][0].split()
+        for i in range(0, len(data1)):
+            data1[i] = int(data1[i])
+        Result = LongestIncresingSequence(data1)
+        data1, data2 = data1[:len(data1) // 2], data1[len(data1) // 2:]
+        labelTest.configure(text="Input Array: " + str(data1) + "\n" +
+                            str(data2),
                             foreground="BLACK",
                             background="GRAY")
 
@@ -104,12 +106,14 @@ def RunAlgo():
 
     # Problem E
     if var == 5:
-        data = AllFiles[var2 - 1][0].split()
-        for i in range(0, len(data)):
-            data[i] = int(data[i])
-        Result = MatrixChainMultiplication(data)
+        data1 = AllFiles[var2 - 1][0].split()
+        for i in range(0, len(data1)):
+            data1[i] = int(data1[i])
+        Result = MatrixChainMultiplication(data1)
 
-        labelTest.configure(text="Input Dimension Of Matrix: " + str(data),
+        data1, data2 = data1[:len(data1) // 2], data1[len(data1) // 2:]
+        labelTest.configure(text="Dimensions Of Matrices: " + str(data1) +
+                            "\n" + str(data2),
                             foreground="BLACK",
                             background="GRAY")
 
@@ -136,8 +140,7 @@ def RunAlgo():
 
         Result = KnapSack(v, w, W)
 
-        labelTest.configure(text="Value Matrix: " + str(v) +
-                            "\nWeight Matrix: " + str(w) +
+        labelTest.configure(text="Value: " + str(v) + "\nWeight: " + str(w) +
                             "\nKnapSack Capacity: " + str(W),
                             foreground="BLACK",
                             background="GRAY")
@@ -148,14 +151,25 @@ def RunAlgo():
 
     # Problem G
     if var == 7:
+        data1 = []
         data = AllFiles[var2 - 1][0].split()
         for i in range(0, len(data)):
             data[i] = int(data[i])
+
         Result = PartitionProblem(data, len(data))
 
-        labelTest.configure(text="Input Array: " + str(data),
-                            foreground="BLACK",
-                            background="GRAY")
+        if (len(data) > 40):
+            data1, data2 = data[:len(data) // 2], data[len(data) // 2:]
+            labelTest.configure(text="Input Array: " + str(data1) + "\n" +
+                                str(data2),
+                                foreground="BLACK",
+                                background="GRAY")
+
+        else:
+            labelTest.configure(text="Input Array: " + str(data),
+                                foreground="BLACK",
+                                background="GRAY")
+
         if (Result == True):
             labelTest2.configure(
                 text="Array Can Be Divided Into Two Subsets Of Equal Sum ✔",
@@ -202,12 +216,16 @@ def RunAlgo():
         data = AllFiles[var2 - 1][0].split()
         for i in range(0, len(data) - 1):
             data[i] = int(data[i])
+
         rupee = int(data[len(data) - 1])
         data.pop()
-        Result = FindMinCoins(data, rupee)
+        data = list(dict.fromkeys(data))
 
-        labelTest.configure(text="List Of Available Coins: " + str(data) +
-                            "\nDesired Change Of Rupee: " + str(rupee),
+        Result = FindMinCoins(data, rupee)
+        data1, data2 = data[:len(data) // 2], data[len(data) // 2:]
+        labelTest.configure(text="List Of Available Coins: " + str(data1) +
+                            "\n" + str(data2) + "\nDesired Change Of Rupee: " +
+                            str(rupee),
                             foreground="BLACK",
                             background="GRAY")
 
@@ -227,8 +245,9 @@ def RunAlgo():
 
         lookup = [-1] * (len(stri) + 1)
         Result = WordBreak(data, stri, lookup)
-        labelTest.configure(text="List Of Available Words: " + str(data) +
-                            "\nDesired Word: " + (stri),
+        data1, data2 = data[:len(data) // 2], data[len(data) // 2:]
+        labelTest.configure(text="Words: " + str(data1) + "\n" +
+                            str(data2) + "\nDesired Word: " + (stri),
                             foreground="BLACK",
                             background="GRAY")
         if Result:
@@ -347,11 +366,10 @@ def callback2(*args):
         strings = AllFiles[var2 - 1][0].split()
 
 
-labelTest = tk.Label(text="", font=('Helvetica', 18), fg='red')
-
+#Output Display
+labelTest = tk.Label(text="", font=('Helvetica', 14), fg='red')
 labelTest.pack(pady=10, padx=90)
-
-labelTest2 = tk.Label(text="", font=('Helvetica', 18), fg='red')
+labelTest2 = tk.Label(text="", font=('Helvetica', 14), fg='red')
 labelTest2.pack(pady=10, padx=90)
 
 #run button
