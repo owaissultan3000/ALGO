@@ -19,7 +19,7 @@ def RodCutting(price, n):
 def RodCuttingReader():
     lines = []
     mainlines = []
-    for i in range(1, 3):
+    for i in range(1, 11):
         file1 = open("../ProblemH/" + str(i) + ".txt", 'r')
         for line in file1:
             items = line.rstrip('\r\n').split('\t')

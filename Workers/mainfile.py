@@ -199,7 +199,7 @@ def RunAlgo():
         for i in range(0, len(Price)):
             Price[i] = int(Price[i])
 
-        Result = RodCutting(Price, RodLength)
+        Result = RodCutting(Price, len(Price))
 
         labelTest.configure(text="Rod Length Matrix: " + str(Length) +
                             "\nRod Price Matrix: " + str(Price) +
@@ -246,8 +246,8 @@ def RunAlgo():
         lookup = [-1] * (len(stri) + 1)
         Result = WordBreak(data, stri, lookup)
         data1, data2 = data[:len(data) // 2], data[len(data) // 2:]
-        labelTest.configure(text="Words: " + str(data1) + "\n" +
-                            str(data2) + "\nDesired Word: " + (stri),
+        labelTest.configure(text="Words: " + str(data1) + "\n" + str(data2) +
+                            "\nDesired Word: " + (stri),
                             foreground="BLACK",
                             background="GRAY")
         if Result:
